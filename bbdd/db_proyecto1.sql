@@ -103,16 +103,16 @@ CREATE TABLE `tbl_reserva` (
 -- Estructura de tabla para la tabla `tbl_ubicación`
 --
 
-CREATE TABLE `tbl_ubicación` (
+CREATE TABLE `tbl_ubicacion` (
   `id_ubicacion` int(5) NOT NULL,
-  `Nombre_ubicación` varchar(50) COLLATE utf8mb4_spanish2_ci NOT NULL
+  `Nombre_ubicacion` varchar(50) COLLATE utf8mb4_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
 
 --
--- Volcado de datos para la tabla `tbl_ubicación`
+-- Volcado de datos para la tabla `tbl_ubicacion`
 --
 
-INSERT INTO `tbl_ubicación` (`id_ubicacion`, `Nombre_ubicación`) VALUES
+INSERT INTO `tbl_ubicacion` (`id_ubicacion`, `Nombre_ubicacion`) VALUES
 (1, 'Comedor-1'),
 (2, 'Comedor-2'),
 (3, 'Terraza'),
@@ -146,7 +146,7 @@ ALTER TABLE `tbl_reserva`
 --
 -- Indices de la tabla `tbl_ubicación`
 --
-ALTER TABLE `tbl_ubicación`
+ALTER TABLE `tbl_ubicacion`
   ADD PRIMARY KEY (`id_ubicacion`);
 
 --
@@ -174,7 +174,7 @@ ALTER TABLE `tbl_reserva`
 --
 -- AUTO_INCREMENT de la tabla `tbl_ubicación`
 --
-ALTER TABLE `tbl_ubicación`
+ALTER TABLE `tbl_ubicacion`
   MODIFY `id_ubicacion` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -185,7 +185,7 @@ ALTER TABLE `tbl_ubicación`
 -- Filtros para la tabla `tbl_mesa`
 --
 ALTER TABLE `tbl_mesa`
-  ADD CONSTRAINT `FK_mesa_ubicacion` FOREIGN KEY (`id_ubicacion`) REFERENCES `tbl_ubicación` (`id_ubicacion`);
+  ADD CONSTRAINT `FK_mesa_ubicacion` FOREIGN KEY (`id_ubicacion`) REFERENCES `tbl_ubicacion` (`id_ubicacion`);
 
 --
 -- Filtros para la tabla `tbl_reserva`
