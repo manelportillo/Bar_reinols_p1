@@ -1,8 +1,6 @@
 function validacionForm() {
     var email=document.getElementById('email').value;
     var password=document.getElementById('psswd').value;
-    var labelEmail = document.getElementsByTagName("label")[0];
-    var labelPasswd = document.getElementsByTagName("label")[1];
 
 
     //alert(email);

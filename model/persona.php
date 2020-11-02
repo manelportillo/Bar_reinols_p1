@@ -1,5 +1,5 @@
 <?php
-class Persona{
+abstract class Persona{
     private $id_ad; 
     private $email;
     private $passwd;

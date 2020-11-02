@@ -8,7 +8,7 @@
 </head>
 <body>
 <div>
-  <form action="../controller/loginController.php" onsubmit="return validacionForm()">
+  <form action="../controller/loginController.php" method="POST" onsubmit="return validacionForm()">
     <h2>Login Camarero</h2>
     <label for="email">Email Camarero</label>
     <input type="email" id="email" name="email" placeholder="Email...">
