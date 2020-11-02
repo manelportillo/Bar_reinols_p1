@@ -3,8 +3,12 @@ require_once 'mesa.php';
 class AlumnoDAO{
     private $pdo;
 
+    public  function __construct(){
+        require_once 'connexion.php';
+        $this->pdo=$pdo;
+    }
+
     public function mostrar(){
-        include 'connection.php';
         $sql="SELECT * FROM tbl_mesas";
         $sentencia=$pdo->prepare($sql);
         $sentencia->execute();
