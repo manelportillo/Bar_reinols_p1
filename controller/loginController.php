@@ -2,9 +2,9 @@
 require_once '../model/camarero.php';
 require_once '../model/camareroDAO.php';
 if (isset($_POST['email'])) {
-    $admin = new Camarero($_POST['email'], md5($_POST['passwd']),$id);
-    $adminDAO = new CamareroDao();
-    if($adminDAO->login($admin)){
+    $camarero = new Camarero($_POST['email'], md5($_POST['passwd']),$id);
+    $camareroDAO = new CamareroDao();
+    if($camareroDAO->login($camarero)){
         header('Location: ../view/zona.admin.php');
     }else {
         header('Location: ../view/login.php');

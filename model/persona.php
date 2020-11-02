@@ -1,8 +1,8 @@
 <?php
-class Persona{
-    private $id_ad; 
-    private $email;
-    private $passwd;
+abstract class Persona{
+    protected $id; 
+    protected $email;
+    protected $passwd;
 
     public function __construct($email, $passwd){
         $this->email=$email;
@@ -14,7 +14,7 @@ class Persona{
      */ 
     public function getId_ad()
     {
-        return $this->id_ad;
+        return $this->id;
     }
 
     /**
