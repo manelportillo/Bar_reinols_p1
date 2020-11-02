@@ -16,10 +16,12 @@ class MesaDAO{
         $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($lista_mesas as $mesa) {
+            echo "<div class='item'";
             $id=$mesa['id_mesa']." ";
-            echo "{$mesa['capacidad_mesa']}"." ";
+            echo "<p>{$mesa['capacidad_mesa']}";
             echo "{$mesa['Disponibilidad']}". " ";
-            echo "{$mesa['id_ubicacion']}<br>";
+            echo "{$mesa['id_ubicacion']}</p>";
+            echo "</div>";
         }
     }
 }

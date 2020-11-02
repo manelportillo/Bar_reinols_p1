@@ -1,7 +1,10 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
+html,
+body
+{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -9,21 +12,24 @@ h1 {
 }
 
 .container {
-    width: 600px;
+    width: 75%;
+    height: auto;
     background: lightblue;
     margin: auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: left;
 }
 
 .item {
     background: tomato;
     color: #fff; 
     flex: none;
-    width: calc((100% -30px) / 3);
-    margin-bottom: 1em;
-
+    /*width: calc((100% -30px) / 3);*/
+    width: 100px; 
+    height: 100px; 
+    margin-bottom: 2%;
+    margin: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
