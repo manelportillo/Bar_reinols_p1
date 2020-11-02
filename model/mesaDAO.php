@@ -13,7 +13,9 @@ class AlumnoDAO{
 
         foreach ($lista_mesas as $mesa) {
             $id=$mesas['id_mesas']." ";
-            echo "{$mesa['numero_mesa']}<br>";
+            echo "{$mesa['capacidad_mesa']}"." ";
+            echo "{$mesa['Disponibilidad']}". " ";
+            echo "{$mesa['id_ubicacion']}<br>";
         }
     }
 }
