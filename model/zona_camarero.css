@@ -4,7 +4,7 @@ body
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    overflow-x: hidden;
+    margin: 0%;
 }
 
 h1 {
@@ -12,10 +12,9 @@ h1 {
 }
 
 .container {
-    width: 75%;
+    width: 100%;
     height: auto;
     background: lightblue;
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -25,6 +24,7 @@ h1 {
     background: tomato;
     color: #fff; 
     flex: none;
+    float: left;
     /*width: calc((100% -30px) / 3);*/
     width: 100px; 
     height: 100px; 
