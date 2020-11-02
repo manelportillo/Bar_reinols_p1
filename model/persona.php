@@ -1,6 +1,6 @@
 <?php
 abstract class Persona{
-    private $id_ad; 
+    private $id; 
     private $email;
     private $passwd;
 
@@ -14,7 +14,7 @@ abstract class Persona{
      */ 
     public function getId_ad()
     {
-        return $this->id_ad;
+        return $this->id;
     }
 
     /**
