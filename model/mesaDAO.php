@@ -9,7 +9,7 @@ class MesaDAO{
     }
 
     public function mostrar(){
-        $sql="SELECT * FROM tbl_mesa";
+        $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion";
         $sentencia=$this->pdo->prepare($sql);
         $sentencia->execute();
 
@@ -18,9 +18,9 @@ class MesaDAO{
         foreach ($lista_mesas as $mesa) {
             echo "<div class='item'";
             $id=$mesa['id_mesa']." ";
-            echo "<p>{$mesa['capacidad_mesa']}";
-            echo "{$mesa['Disponibilidad']}". " ";
-            echo "{$mesa['id_ubicacion']}</p>";
+            echo "<p>{$mesa['capacidad_mesa']}"." Comensales <br>";
+            echo "{$mesa['Disponibilidad']}<br>";
+            echo "{$mesa['Nombre_ubicacion']}</p>";
             echo "</div>";
         }
     }

@@ -4,7 +4,7 @@ body
     display: inline-block;
     box-sizing: border-box;
     width: 100%;
-    overflow-x: hidden;
+    margin: 0;
 }
 
 h1 {
@@ -25,8 +25,7 @@ h1 {
     background: tomato;
     color: #fff; 
     flex: none;
-    /*width: calc((100% -30px) / 3);*/
-    width: 100px; 
+    width: 200px; 
     height: 100px; 
     margin-bottom: 2%;
     margin: 5%;
