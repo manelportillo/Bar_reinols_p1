@@ -7,7 +7,7 @@
             require_once 'connexion.php';
             $this->pdo=$pdo;
         }
-
+      
         public function login($camarero){
             $query = "SELECT * FROM tbl_camarero WHERE email_camarero=? AND pswd_camarero=?";
             $sentencia=$this->pdo->prepare($query);
@@ -15,6 +15,7 @@
             $psswd=$camarero->getPasswd();
             echo $email;
             echo $psswd;
+  
             $sentencia->bindParam(1,$email);
             $sentencia->bindParam(2,$psswd);
             $sentencia->execute();
@@ -22,12 +23,15 @@
             $numRow=$sentencia->rowCount();
 
             if(!empty($numRow) && $numRow==1){
+
                 $camarero->setEmail($result['email_camarero']);
                 $camarero->getPasswd($result['pswd_camarero']);
 
                 //Creamos la sesión
                 session_start();
                 $_SESSION['camarero']=$camarero;
+
+
                 return true;
             }else {
                 return false;
