@@ -35,5 +35,6 @@ class MesaDAO{
             <input type="submit" value="Cambiar" name="cambiar"><br><br>
         <?php
     }
+
 }
 ?>
