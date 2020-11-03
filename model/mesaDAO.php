@@ -16,7 +16,7 @@ class AlumnoDAO{
         $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($lista_mesas as $mesa) {
-            $id=$mesas['id_mesas']." ";
+            $id=$mesa['id_mesas']." ";
             echo "{$mesa['capacidad_mesa']}"." ";
             echo "{$mesa['Disponibilidad']}". " ";
             echo "{$mesa['id_ubicacion']}<br>";
