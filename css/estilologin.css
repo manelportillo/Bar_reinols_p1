@@ -25,9 +25,13 @@ input[type=submit]:hover {
 
 div {
     color: white;
-    width: 300px;
+    width: 400px;
     margin: 7% auto;
     border-radius: 5px;
-    background-color: black;
+    background-color: rgb(40, 93, 109);
     padding: 20px;
+}
+
+div#mensaje{
+    padding: 0%;
 }

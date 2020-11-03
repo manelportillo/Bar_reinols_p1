@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/estilologin.css">
+    <script src="../js/login.js"></script>
     <title>Bar Reinols</title>
 </head>
 <body>
@@ -16,8 +17,9 @@
     <label for="passwd">Contraseña</label>
     <input type="password" id="passwd" name="passwd" placeholder="Contraseña...">
   
-    <input type="submit" value="Submit">
+    <input type="submit" id="error" value="Submit">
   </form>
+  <div id="mensaje"></div>
 </div>
 </body>
 </html>
