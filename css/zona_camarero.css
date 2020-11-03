@@ -1,0 +1,36 @@
+html,
+body
+{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    background: lightblue;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.item {
+    background: tomato;
+    color: #fff; 
+    flex: none;
+    width: 200px; 
+    height: 100px; 
+    margin-bottom: 2%;
+    margin: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em 0;
+
+}
