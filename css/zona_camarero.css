@@ -12,10 +12,9 @@ h1 {
 }
 
 .container {
-    width: 75%;
+    width: 100%;
     height: auto;
     background: lightblue;
-    margin: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
