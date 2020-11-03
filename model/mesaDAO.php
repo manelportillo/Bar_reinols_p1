@@ -26,6 +26,7 @@ class MesaDAO{
         }
         ?>
             <form action="cambiarEstado.php?id={$id}" method="GET">
+            
             <select name="estado">
                 <option value="Disponible">Disponible</option> 
                 <option value="Reservada">Reservada</option> 
