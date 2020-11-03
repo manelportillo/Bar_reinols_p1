@@ -13,7 +13,7 @@ h1 {
 
 .container {
     width: 100%;
-    height: auto;
+    /* height: auto; */
     background: lightblue;
     display: flex;
     flex-wrap: wrap;
@@ -28,9 +28,9 @@ h1 {
     height: 100px; 
     margin-bottom: 2%;
     margin: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    /* display: flex; */
+    /* justify-content: center; */
+    align-items: left;
     padding: 2em 0;
 
 }
