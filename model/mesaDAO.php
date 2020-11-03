@@ -9,7 +9,7 @@ class MesaDAO{
     }
 
     public function mostrar(){
-        $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion";
+        $sql="SELECT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion ORDER BY id_mesa ASC";
         $sentencia=$this->pdo->prepare($sql);
         $sentencia->execute();
 
@@ -21,19 +21,19 @@ class MesaDAO{
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales <br>";
             echo "{$mesa['Disponibilidad']}<br>";
             echo "{$mesa['Nombre_ubicacion']}<br>";
-            // echo "<button><a href='cambiarEstado.php?id={$id}'><br>";
-            echo "</div>";
-        }
-        ?>
+            ?>
             <form action="cambiarEstado.php?id={$id}" method="GET">
-            
+            <input type="text" value=<?php echo $id?>>
             <select name="estado">
                 <option value="Disponible">Disponible</option> 
                 <option value="Reservada">Reservada</option> 
                 <option value="Mantenimiento">Mantenimiento</option>
             </select>
             <input type="submit" value="Cambiar" name="cambiar"><br><br>
-        <?php
+            <?php
+            // echo "<button><a href='cambiarEstado.php?id={$id}'><br>";
+            echo "</div>";
+        }
     }
 }
 ?>
