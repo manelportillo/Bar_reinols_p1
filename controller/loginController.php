@@ -1,10 +1,10 @@
 <?php
-require_once '../model/admin.php';
-require_once '../model/adminDAO.php';
+require_once '../model/camarero.php';
+require_once '../model/camareroDAO.php';
 if (isset($_POST['email'])) {
-    $admin = new Admin($_POST['email'], md5($_POST['psswd']),$id);
-    $adminDAO = new AdminDao();
-    if($adminDAO->login($admin)){
+    $camarero = new Camarero($_POST['email'], md5($_POST['passwd']),$id);
+    $camareroDAO = new CamareroDao();
+    if($camareroDAO->login($camarero)){
         header('Location: ../view/zona.admin.php');
     }else {
         header('Location: ../view/login.php');

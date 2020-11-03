@@ -1,5 +1,5 @@
 <?php
-define("BD","bd_gestion_notas");
+define("BD","db_proyecto1");
 define("SERVER", "localhost");
 define("USER", "root");
 define("PASSWORD", "");
