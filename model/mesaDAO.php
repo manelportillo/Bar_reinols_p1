@@ -24,14 +24,19 @@ class MesaDAO{
             $id=$mesa['id_mesa']." ";
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales <br>";
             echo "{$mesa['Disponibilidad']}<br>";
-
+            echo "<form action='wfjowiefngowsbnv.php?id_de_la_mesa={$id}' method='POST'>";
+            echo "<select name='disponibilidad'>";
+            echo "<option value='Disponible'>Disponible</option> ";
+            echo "<option value='Reservada'>Reservada</option> ";
+            echo "<option value='Mantenimiento'>Mantenimiento</option> ";
+            echo "</select>";
+            echo "<input type='submit' value='Submit'>";
+            echo "</form>";
             echo "{$mesa['Nombre_ubicacion']}</p>";
             echo "</div>";
         }
 
         echo "</div>";
-      
-         echo "{$mesa['Nombre_ubicacion']}<br>"
         
     }
 
@@ -69,14 +74,4 @@ class MesaDAO{
            
 
 ?>
-          <form action="cambiarEstado.php?id={$id}" method="GET">
-          <input type="text" value=<?php echo $id?>>
-          <select name="estado">
-              <option value="Disponible">Disponible</option> 
-              <option value="Reservada">Reservada</option> 
-              <option value="Mantenimiento">Mantenimiento</option>
-          </select>
-          <input type="submit" value="Cambiar" name="cambiar"><br><br>
-          <?php
-          // echo "<button><a href='cambiarEstado.php?id={$id}'><br>";
-          echo "</div>";
+
