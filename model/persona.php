@@ -1,6 +1,7 @@
 <?php
-class Persona{
+abstract class Persona{
     private $id_ad; 
+
     private $email;
     private $passwd;
 
@@ -15,6 +16,7 @@ class Persona{
     public function getId_ad()
     {
         return $this->id_ad;
+
     }
 
     /**
@@ -22,9 +24,9 @@ class Persona{
      *
      * @return  self
      */ 
-    public function setId_ad($id_ad)
+    public function setId_ad($id)
     {
-        $this->id_ad = $id_ad;
+        $this->id = $id_ad;
 
         return $this;
     }
