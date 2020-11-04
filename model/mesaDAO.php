@@ -24,18 +24,15 @@ class MesaDAO{
             $id=$mesa['id_mesa']." ";
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales <br>";
             echo "{$mesa['Disponibilidad']}<br>";
-<<<<<<< HEAD
-            echo "{$mesa['Nombre_ubicacion']}</p>";
+            echo "{$mesa['Nombre_ubicacion']}<br>";
             echo "<form action='wfjowiefngowsbnv.php?id_de_la_mesa={$id}' method='POST'>";
-=======
-            echo "<form action='mesaDAO.php?id_de_la_mesa={$id}' method='POST'>";
->>>>>>> a5d9ed5a2cc881f4eb71e6f17e2aa7a621311918
             echo "<select name='disponibilidad'>";
             echo "<option value='Disponible'>Disponible</option> ";
             echo "<option value='Reservada'>Reservada</option> ";
             echo "<option value='Mantenimiento'>Mantenimiento</option> ";
             echo "</select>";
             echo "<input type='submit' value='Submit'>";
+            echo "</p>";
             echo "</form>";
             
             echo "</div>";
@@ -67,7 +64,7 @@ class MesaDAO{
             $id=$mesa['id_mesa']." ";
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales <br>";
             echo "{$mesa['Disponibilidad']}<br>";
-            echo "{$mesa['Nombre_ubicacion']}</p>";
+            echo "{$mesa['Nombre_ubicacion']}<br>";
             echo "<form action='wfjowiefngowsbnv.php?id_de_la_mesa={$id}' method='POST'>";
             echo "<select name='disponibilidad'>";
             echo "<option value='Disponible'>Disponible</option> ";
@@ -75,6 +72,7 @@ class MesaDAO{
             echo "<option value='Mantenimiento'>Mantenimiento</option> ";
             echo "</select>";
             echo "<input type='submit' value='Submit'>";
+            echo "</p>";
             echo "</form>";
             
             echo "</div>";
