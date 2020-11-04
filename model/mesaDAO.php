@@ -24,8 +24,12 @@ class MesaDAO{
             $id=$mesa['id_mesa']." ";
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales <br>";
             echo "{$mesa['Disponibilidad']}<br>";
+<<<<<<< HEAD
             echo "{$mesa['Nombre_ubicacion']}</p>";
             echo "<form action='wfjowiefngowsbnv.php?id_de_la_mesa={$id}' method='POST'>";
+=======
+            echo "<form action='mesaDAO.php?id_de_la_mesa={$id}' method='POST'>";
+>>>>>>> a5d9ed5a2cc881f4eb71e6f17e2aa7a621311918
             echo "<select name='disponibilidad'>";
             echo "<option value='Disponible'>Disponible</option> ";
             echo "<option value='Reservada'>Reservada</option> ";
@@ -78,6 +82,12 @@ class MesaDAO{
 
         echo "</div>";
 
+    }
+
+    public function update(){
+        $estado=$_POST['disponibilidad'];
+        $id_mesa=$_GET['id_de_la_mesa'];
+        $query="UPDATE `tbl_mesa` SET `Disponibilidad` = $estado WHERE `tbl_mesa`.`id_mesa` = $id_mesa;";
     }
 
 }
