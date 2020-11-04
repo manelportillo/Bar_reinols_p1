@@ -2,7 +2,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum=1.0"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
         <link  rel="stylesheet" href="../css/zona_camarero.css"/>
         <script src="../js/code.js"></script>
         <title> </title>
@@ -12,6 +12,10 @@
         <?php
             require_once 'mesaDAO.php';
             $mesaDAO=new MesaDao(); 
+
+            if (isset($_POST['Disponibilidad'])){
+                $mesaDAO->update();
+            }
 
             if (isset($_POST['num_com']) && isset($_POST['disponibilidad']) && isset($_POST['ubicacion'])) {
                 $num_comensales=$_POST['num_com'];
@@ -45,6 +49,8 @@
 
                 echo "</form>";
 
+                echo "<button onclick='alteracionColor()'>Refrescar</button>";
+
                 $mesaDAO->filtrarMesas($num_comensales,$disponibilidad,$ubicavion);
 
             }else{
@@ -76,6 +82,8 @@
                 echo "<input type='submit' value='Submit'>";
 
                 echo "</form>";
+
+                echo "<button onclick='alteracionColor()'>Refrescar</button>";
                 
                 $mesaDAO->mostrar();
 

@@ -13,24 +13,30 @@ h1 {
 
 .container {
     width: 100%;
-    /* height: auto; */
+    display: inline-block;
+    box-sizing: border-box;
     background: lightblue;
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
+    object-position: center;
+
 }
 
 .item {
-    background: tomato;
+    background-color: tomato;
     color: #fff; 
     flex: none;
     width: 200px; 
-    height: 100px; 
-    margin-bottom: 2%;
-    margin: 5%;
+    height: auto; 
+    margin-bottom: 2px;
+    margin: 1%;
     /* display: flex; */
-    /* justify-content: center; */
+    justify-content: center;
     align-items: left;
-    padding: 2em 0;
+    padding: 5%;
+}
 
+.item p {
+    margin: 1%;
 }
