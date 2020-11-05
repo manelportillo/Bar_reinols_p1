@@ -25,6 +25,7 @@
 
                 echo "<label for='num_com'>numero_comensales</label>";
                 echo "<select name='num_com'>";
+                echo "<option value='' disabled selected='true'>Seleccionar...</option> ";
                 echo "<option value='2'>2 asientos</option> ";
                 echo "<option value='4'>4 asientos</option> ";
                 echo "<option value='6'>6 asientos</option> ";
@@ -33,12 +34,14 @@
 
                 echo "<label for='disponibilidad'>Disponibilidad</label>";
                 echo "<select name='disponibilidad'>";
+                echo "<option value='' disabled selected='true'>Seleccionar...</option> ";
                 echo "<option value='Disponible'>Disponible</option> ";
                 echo "<option value='Reservada'>Reservada</option> ";
                 echo "</select>";
 
                 echo "<label for='ubicacion'>Ubicacion del Restaurante</label>";
                 echo "<select name='ubicacion'>";
+                echo "<option value='' disabled selected='true'>Seleccionar...</option> ";
                 echo "<option value='1'>Comedor-1</option> ";
                 echo "<option value='2'>Comedor-2</option> ";
                 echo "<option value='3'>Terraza</option>";
@@ -59,6 +62,7 @@
 
                 echo "<label for='num_com'>numero_comensales</label>";
                 echo "<select name='num_com'>";
+                echo "<option value='' disabled selected='true'>Seleccionar...</option> ";
                 echo "<option value='2'>2 asientos</option> ";
                 echo "<option value='4'>4 asientos</option> ";
                 echo "<option value='6'>6 asientos</option> ";
@@ -67,12 +71,14 @@
 
                 echo "<label for='disponibilidad'>Disponibilidad</label>";
                 echo "<select name='disponibilidad'>";
+                echo "<option value='' disabled selected='true'>Seleccionar...</option> ";
                 echo "<option value='Disponible'>Disponible</option> ";
                 echo "<option value='Reservada'>Reservada</option> ";
                 echo "</select>";
 
                 echo "<label for='ubicacion'>Ubicacion del Restaurante</label>";
                 echo "<select name='ubicacion'>";
+                echo "<option value='' disabled selected='true'>Seleccionar...</option> ";
                 echo "<option value='1'>Comedor-1</option> ";
                 echo "<option value='2'>Comedor-2</option> ";
                 echo "<option value='3'>Terraza</option>";
