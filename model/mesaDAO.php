@@ -18,8 +18,6 @@ class MesaDAO{
 
         $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-
-        echo "<h1>Mesas</h1>";
         echo "<div class='container'>";
         foreach ($lista_mesas as $mesa) {
             echo "<div class='item'>";
@@ -61,7 +59,7 @@ class MesaDAO{
         $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
 
-        echo "<h1>Mesas</h1>";
+
         echo "<div class='container'>";
         foreach ($lista_mesas as $mesa) {
             echo "<div class='item'>";
