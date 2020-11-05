@@ -10,7 +10,7 @@
     <body>
 
         <?php
-            require_once 'mesaDAO.php';
+            require_once '../model/mesaDAO.php';
             $mesaDAO=new MesaDao(); 
 
             if (isset($_POST['Disponibilidad'])){
@@ -21,7 +21,7 @@
                 $num_comensales=$_POST['num_com'];
                 $disponibilidad=$_POST['disponibilidad'];
                 $ubicavion=$_POST['ubicacion'];
-                echo "<form action='zona_camarero.php' method='POST'>";
+                echo "<form action='../view/zona_camarero.php' method='POST'>";
 
                 echo "<label for='num_com'>numero_comensales</label>";
                 echo "<select name='num_com'>";
@@ -58,7 +58,7 @@
 
             }else{
 
-                echo "<form action='zona_camarero.php' method='POST'>";
+                echo "<form action='../view/zona_camarero.php' method='POST'>";
 
                 echo "<label for='num_com'>numero_comensales</label>";
                 echo "<select name='num_com'>";
