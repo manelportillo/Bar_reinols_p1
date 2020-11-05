@@ -1,5 +1,4 @@
-<?php 
-require_once 'mesa.php';
+<?php
 
 class MesaDAO{
 
@@ -28,7 +27,7 @@ class MesaDAO{
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales</p> <br>";
             echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
             echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
-            echo "<form action='zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
+            echo "<form action='../view/zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
             echo "<select name='Disponibilidad'>";
             echo "<option value='Disponible'>Disponible</option> ";
             echo "<option value='Reservada'>Reservada</option> ";
@@ -70,7 +69,7 @@ class MesaDAO{
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales</p> <br>";
             echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
             echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
-            echo "<form action='zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
+            echo "<form action='../view/zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
             echo "<select name='Disponibilidad'>";
             echo "<option value='Disponible'>Disponible</option> ";
             echo "<option value='Reservada'>Reservada</option> ";
@@ -95,7 +94,7 @@ class MesaDAO{
             $sentencia=$this->pdo->prepare($query);
             $sentencia->bindParam(1,$estado);
             $sentencia->execute();
-            header ("Location: zona_camarero.php");
+            header ("Location:../view/zona_camarero.php");
         } else {
             // header ("Location: zona_pruebas.php");
         }
