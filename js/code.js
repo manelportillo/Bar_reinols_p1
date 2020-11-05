@@ -5,12 +5,12 @@ window.location.reload= function(){
 function alteracionColor() {
     
     var Mesa=document.getElementsByClassName('item');
-    var Disponibilidad=document.getElementsByClassName('Disponibilidad');
 
     for (let i = 0; i < Mesa.length; i++) {
         //alert(Mesa[i]);
         //alert(Disponibilidad[i].innerHTML);
-        
+        var Disponibilidad=document.getElementById('item{$i}');
+
         if(Disponibilidad[i].innerHTML == 'Disponible'){
             Mesa[i].style.backgroundColor = "green";
         }else if(Disponibilidad[i].innerHTML == 'Reservada'){

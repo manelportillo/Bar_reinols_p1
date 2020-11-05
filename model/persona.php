@@ -1,9 +1,7 @@
 <?php
 
 abstract class Persona{
-    private $id_ad; 
-
-
+    private $id; 
     private $email;
     private $passwd;
 
@@ -11,28 +9,6 @@ abstract class Persona{
         $this->email=$email;
         $this->passwd=$passwd;
     }
-  
-    /**
-     * Get the value of id_ad
-     */ 
-    public function getId_ad()
-    {
-        return $this->id_ad;
-    }
-
-    /**
-     * Set the value of id_ad
-     *
-     * @return  self
-     */ 
-
-    public function setId_ad($id)
-    {
-        $this->id = $id_ad;
-
-        return $this;
-    }
-
     /**
      * Get the value of email
      */ 
@@ -71,6 +47,26 @@ abstract class Persona{
     public function setPasswd($passwd)
     {
         $this->passwd = $passwd;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id
+     */ 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */ 
+    public function setId($id)
+    {
+        $this->id = $id;
 
         return $this;
     }

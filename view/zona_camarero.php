@@ -10,8 +10,10 @@
     <body>
 
         <?php
+            require_once '../controller/sessionController.php';
             require_once '../model/mesaDAO.php';
             $mesaDAO=new MesaDao(); 
+            
 
             if (isset($_POST['Disponibilidad'])){
                 $mesaDAO->update();
@@ -94,7 +96,7 @@
                 $mesaDAO->mostrar();
 
             }
-            
+           
         ?>
  
     </body>
