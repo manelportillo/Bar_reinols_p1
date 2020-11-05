@@ -1,6 +1,9 @@
 <?php 
 require_once 'mesa.php';
+
 class MesaDAO{
+
+
     private $pdo;
 
     public  function __construct(){
@@ -53,9 +56,11 @@ class MesaDAO{
         $sentencia->bindParam(2,$disponibilidad);
         $sentencia->bindParam(3,$ubicavion);
         
+
         $sentencia->execute();
 
         $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
 
         echo "<h1>Mesas</h1>";
         echo "<div class='container'>";
