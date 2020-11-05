@@ -3,7 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
+
+
 -- Tiempo de generación: 02-11-2020 a las 17:59:51
+
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -99,7 +102,7 @@ CREATE TABLE `tbl_reserva` (
 
 -- --------------------------------------------------------
 
---
+
 -- Estructura de tabla para la tabla `tbl_ubicacion`
 --
 
@@ -144,6 +147,7 @@ ALTER TABLE `tbl_reserva`
   ADD KEY `FK_reserva_mesa` (`id_mesa`);
 
 --
+
 -- Indices de la tabla `tbl_ubicacion`
 --
 ALTER TABLE `tbl_ubicacion`
@@ -171,7 +175,6 @@ ALTER TABLE `tbl_mesa`
 ALTER TABLE `tbl_reserva`
   MODIFY `id_reserva` int(5) NOT NULL AUTO_INCREMENT;
 
---
 -- AUTO_INCREMENT de la tabla `tbl_ubicacion`
 --
 ALTER TABLE `tbl_ubicacion`
@@ -186,6 +189,7 @@ ALTER TABLE `tbl_ubicacion`
 --
 ALTER TABLE `tbl_mesa`
   ADD CONSTRAINT `FK_mesa_ubicacion` FOREIGN KEY (`id_ubicacion`) REFERENCES `tbl_ubicacion` (`id_ubicacion`);
+
 
 --
 -- Filtros para la tabla `tbl_reserva`

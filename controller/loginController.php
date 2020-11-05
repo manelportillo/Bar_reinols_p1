@@ -1,4 +1,5 @@
 <?php
+
 require_once '../model/camarero.php';
 require_once '../model/camareroDAO.php';
 if (isset($_POST['email'])) {

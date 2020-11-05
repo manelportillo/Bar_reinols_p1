@@ -1,6 +1,8 @@
 <?php
+
 abstract class Persona{
     private $id_ad; 
+
 
     private $email;
     private $passwd;
@@ -16,7 +18,6 @@ abstract class Persona{
     public function getId_ad()
     {
         return $this->id_ad;
-
     }
 
     /**
@@ -24,6 +25,7 @@ abstract class Persona{
      *
      * @return  self
      */ 
+
     public function setId_ad($id)
     {
         $this->id = $id_ad;
