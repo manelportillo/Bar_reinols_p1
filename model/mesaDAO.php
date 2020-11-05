@@ -26,7 +26,7 @@ class MesaDAO{
             echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
             echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
             echo "<form action='zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
-            echo "<select name='disponibilidad'>";
+            echo "<select name='Disponibilidad'>";
             echo "<option value='Disponible'>Disponible</option> ";
             echo "<option value='Reservada'>Reservada</option> ";
             echo "<option value='Mantenimiento'>Mantenimiento</option> ";
@@ -66,7 +66,7 @@ class MesaDAO{
             echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
             echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
             echo "<form action='zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
-            echo "<select name='disponibilidad'>";
+            echo "<select name='Disponibilidad'>";
             echo "<option value='Disponible'>Disponible</option> ";
             echo "<option value='Reservada'>Reservada</option> ";
             echo "<option value='Mantenimiento'>Mantenimiento</option> ";
