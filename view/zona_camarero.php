@@ -4,11 +4,11 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
         <link  rel="stylesheet" href="../css/zona_camarero.css"/>
-        <script src="../js/code.js"></script>
-        <title> </title>
+        <title>Mesas Bar Reinols</title>
     </head>
     <body>
-
+        <div class='img' src="../img/header.jpg"></div>
+        
         <?php
             require_once '../controller/sessionController.php';
             require_once '../model/mesaDAO.php';
@@ -19,13 +19,15 @@
                 $mesaDAO->update();
             }
 
-            if (isset($_POST['num_com']) && isset($_POST['disponibilidad']) && isset($_POST['ubicacion'])) {
-                $num_comensales=$_POST['num_com'];
-                $disponibilidad=$_POST['disponibilidad'];
-                $ubicavion=$_POST['ubicacion'];
+            if (isset($_POST['num_com']) || isset($_POST['disponibilidad']) || isset($_POST['ubicacion'])) {
+                // $num_comensales=$_POST['num_com'];
+                // $disponibilidad=$_POST['disponibilidad'];
+                // $ubicavion=$_POST['ubicacion'];
+                echo "<div class='ns'>";
+              
                 echo "<form action='../view/zona_camarero.php' method='POST'>";
-
-                echo "<label for='num_com'>numero_comensales</label>";
+ 
+                echo "<label for='num_com'>Número de comensales</label>";
                 echo "<select name='num_com'>";
                 echo "<option value='' disabled selected='true'>Seleccionar...</option> ";
                 echo "<option value='2'>2 asientos</option> ";
@@ -53,16 +55,16 @@
                 echo "<input type='submit' value='Submit'>";
 
                 echo "</form>";
+                echo "</div>";
 
-                echo "<button onclick='alteracionColor()'>Refrescar</button>";
+                $mesaDAO->filtrarMesas();
 
-                $mesaDAO->filtrarMesas($num_comensales,$disponibilidad,$ubicavion);
 
             }else{
-
+                echo "<div class='ns'>";
                 echo "<form action='../view/zona_camarero.php' method='POST'>";
 
-                echo "<label for='num_com'>numero_comensales</label>";
+                echo "<label for='num_com'>Número de comensales</label>";
                 echo "<select name='num_com'>";
                 echo "<option value='' disabled selected='true'>Seleccionar...</option> ";
                 echo "<option value='2'>2 asientos</option> ";
@@ -90,14 +92,13 @@
                 echo "<input type='submit' value='Submit'>";
 
                 echo "</form>";
+                echo "</div>";
 
-                echo "<button onclick='alteracionColor()'>Refrescar</button>";
                 
                 $mesaDAO->mostrar();
 
             }
-           
+
         ?>
- 
     </body>
 </html>
