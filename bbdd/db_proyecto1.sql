@@ -1,17 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
-
-
--- Tiempo de generación: 02-11-2020 a las 17:59:51
-
--- Versión del servidor: 10.4.8-MariaDB
--- Versión de PHP: 7.3.11
+-- Tiempo de generación: 06-11-2020 a las 17:39:00
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -97,12 +93,32 @@ CREATE TABLE `tbl_reserva` (
   `id_mesa` int(5) NOT NULL,
   `id_camarero` int(5) NOT NULL,
   `Hora_incio_reserva` time NOT NULL,
-  `Hora_final_reserva` time NOT NULL
+  `Hora_final_reserva` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_reserva`
+--
+
+INSERT INTO `tbl_reserva` (`id_reserva`, `Fecha_reserva`, `id_mesa`, `id_camarero`, `Hora_incio_reserva`, `Hora_final_reserva`) VALUES
+(1, '2020-11-06', 1, 1, '15:23:20', '15:25:10'),
+(2, '2020-11-06', 1, 1, '15:26:10', '16:11:13'),
+(3, '2020-11-06', 1, 1, '16:11:16', NULL),
+(4, '2020-11-06', 1, 1, '16:11:34', '16:11:40'),
+(5, '2020-11-06', 1, 1, '16:11:59', '16:12:03'),
+(6, '2020-11-06', 1, 1, '16:12:18', '16:12:20'),
+(7, '2020-11-06', 1, 1, '16:12:44', '16:12:51'),
+(8, '2020-11-06', 1, 1, '16:12:58', '16:13:09'),
+(9, '2020-11-06', 2, 1, '16:13:01', '16:54:58'),
+(10, '2020-11-06', 1, 1, '16:14:29', '16:54:04'),
+(11, '2020-11-06', 1, 1, '16:55:14', '16:55:32'),
+(12, '2020-11-06', 2, 1, '16:55:24', '16:57:49'),
+(13, '2020-11-06', 1, 1, '16:56:06', '16:56:52'),
+(14, '2020-11-06', 2, 3, '16:56:32', NULL);
 
 -- --------------------------------------------------------
 
-
+--
 -- Estructura de tabla para la tabla `tbl_ubicacion`
 --
 
@@ -147,7 +163,6 @@ ALTER TABLE `tbl_reserva`
   ADD KEY `FK_reserva_mesa` (`id_mesa`);
 
 --
-
 -- Indices de la tabla `tbl_ubicacion`
 --
 ALTER TABLE `tbl_ubicacion`
@@ -173,8 +188,9 @@ ALTER TABLE `tbl_mesa`
 -- AUTO_INCREMENT de la tabla `tbl_reserva`
 --
 ALTER TABLE `tbl_reserva`
-  MODIFY `id_reserva` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reserva` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
+--
 -- AUTO_INCREMENT de la tabla `tbl_ubicacion`
 --
 ALTER TABLE `tbl_ubicacion`
@@ -189,7 +205,6 @@ ALTER TABLE `tbl_ubicacion`
 --
 ALTER TABLE `tbl_mesa`
   ADD CONSTRAINT `FK_mesa_ubicacion` FOREIGN KEY (`id_ubicacion`) REFERENCES `tbl_ubicacion` (`id_ubicacion`);
-
 
 --
 -- Filtros para la tabla `tbl_reserva`
