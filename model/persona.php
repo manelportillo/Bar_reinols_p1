@@ -11,27 +11,6 @@ abstract class Persona{
         $this->email=$email;
         $this->passwd=$passwd;
     }
-  
-    /**
-     * Get the value of id_ad
-     */ 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set the value of id_ad
-     *
-     * @return  self
-     */ 
-
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
 
     /**
      * Get the value of email
@@ -40,6 +19,7 @@ abstract class Persona{
     {
         return $this->email;
     }
+
     public function mostrarEmail(){
         echo $this->email;
     }
@@ -74,6 +54,7 @@ abstract class Persona{
 
         return $this;
     }
+
 
     /**
      * Get the value of id
