@@ -9,16 +9,15 @@
 </head>
 <body>
 <div>
-  <form action="../controller/loginController.php" method="POST" onsubmit="return validacionForm()">
+  <form action="../controller/loginController_mantenimiento.php" method="POST" onsubmit="return validacionForm()">
     <img src="../img/mauricio.png"><br>
-    <label for="email">Email Camarero</label>
+    <label for="email">Email Mantenimiento</label>
     <input type="email" id="email" name="email" placeholder="Email...">
     <label for="passwd">Contraseña</label>
     <input type="password" id="passwd" name="passwd" placeholder="Contraseña...">
   
     <input type="submit" id="error" value="Submit">
   </form>
-  <button><a href="login_mantenimiento.php">Mantenimento</a></button>
   <div id="mensaje"></div>
 </div>
 </body>

@@ -77,3 +77,6 @@ footer{
     width: 100%;
     height: auto;
 }
+
+.oculto { display: none; }
+.visible { display: inline; }
