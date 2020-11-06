@@ -4,6 +4,7 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
         <link  rel="stylesheet" href="../css/zona_camarero.css"/>
+
         <script src="../js/code.js"></script>
         <title>Mesas Bar Reinols</title>
     </head>
@@ -18,11 +19,12 @@
                 $mesaDAO->update();
             }
 
-            if (isset($_POST['num_com']) && isset($_POST['disponibilidad']) && isset($_POST['ubicacion'])) {
-                $num_comensales=$_POST['num_com'];
-                $disponibilidad=$_POST['disponibilidad'];
-                $ubicavion=$_POST['ubicacion'];
+            if (isset($_POST['num_com']) || isset($_POST['disponibilidad']) || isset($_POST['ubicacion'])) {
+                // $num_comensales=$_POST['num_com'];
+                // $disponibilidad=$_POST['disponibilidad'];
+                // $ubicavion=$_POST['ubicacion'];
                 echo "<div class='ns'>";
+              
                 echo "<form action='../view/zona_camarero.php' method='POST'>";
  
                 echo "<label for='num_com'>Número de comensales</label>";
@@ -54,8 +56,7 @@
 
                 echo "</form>";
 
-                echo "</div>";
-                $mesaDAO->filtrarMesas($num_comensales,$disponibilidad,$ubicavion);
+                $mesaDAO->filtrarMesas();
 
             }else{
                 echo "<div class='ns'>";

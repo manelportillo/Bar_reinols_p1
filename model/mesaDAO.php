@@ -32,36 +32,131 @@ class MesaDAO{
             echo "<option value='Mantenimiento'>Mantenimiento</option> ";
             echo "</select>";
             echo "<input type='submit' value='Submit'>";
-            // echo "</p>";
             echo "</form>";
             
             echo "</div>";
-        }
+            }
+            ?>
+            <script>
+                var Mesa=document.getElementsByClassName('item');
+                var Disponibilidad=document.getElementsByClassName('Disponibilidad');
 
-        echo "</div>";
-        
+                for (let i = 0; i < Mesa.length; i++) {
+                    //alert(Mesa[i]);
+                    //alert(Disponibilidad[i].innerHTML);
+
+                    if(Disponibilidad[i].innerHTML == 'Disponible'){
+                    Mesa[i].style.backgroundColor = "green";
+                    }else if(Disponibilidad[i].innerHTML == 'Reservada'){
+                    Mesa[i].style.backgroundColor = "red";
+                    }else{
+                    Mesa[i].style.backgroundColor = "grey";
+                    }
+                }
+            </script>";
+            <?php        
     }
 
-    public function filtrarMesas($num_comensales,$disponibilidad,$ubicavion){
+    public function filtrarMesas(){
 
-        $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion WHERE tbl_mesa.capacidad_mesa=? AND tbl_mesa.Disponibilidad=? AND tbl_ubicacion.id_ubicacion=? ;";
-        // echo $num_comensales;
-        // echo $disponibilidad;
-        // echo $ubicavion;
-        $sentencia=$this->pdo->prepare($sql);
-        $sentencia->bindParam(1,$num_comensales);
-        $sentencia->bindParam(2,$disponibilidad);
-        $sentencia->bindParam(3,$ubicavion);
+        if (isset($_POST['num_com']) && isset($_POST['disponibilidad']) && isset($_POST['ubicacion'])) {
+
+            $num_comensales=$_POST['num_com'];
+            $disponibilidad=$_POST['disponibilidad'];
+            $ubicacion=$_POST['ubicacion'];
+            echo $num_comensales;
+            echo $disponibilidad;
+            echo $ubicacion;
+
+
+            $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion WHERE tbl_mesa.capacidad_mesa=? AND tbl_mesa.Disponibilidad=? AND tbl_ubicacion.id_ubicacion=? ;";
+            $sentencia=$this->pdo->prepare($sql);
+            $sentencia->bindParam(1,$num_comensales);
+            $sentencia->bindParam(2,$disponibilidad);
+            $sentencia->bindParam(3,$ubicacion);
+            
+
+            $sentencia->execute();
+
+            $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        }else if (isset($_POST['num_com']) && !isset($_POST['disponibilidad']) && !isset($_POST['ubicacion'])) {
+
+            $num_comensales=$_POST['num_com'];
         
-
-        $sentencia->execute();
-
-        $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
-
+            $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion WHERE tbl_mesa.capacidad_mesa=?;";
+            $sentencia=$this->pdo->prepare($sql);
+            $sentencia->bindParam(1,$num_comensales);
 
 
-        echo "<div class='container'>";
-        foreach ($lista_mesas as $mesa) {
+            $sentencia->execute();
+
+            $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        }else if (!isset($_POST['num_com']) && isset($_POST['disponibilidad']) && !isset($_POST['ubicacion'])) {
+
+            $disponibilidad=$_POST['disponibilidad'];
+
+            $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion WHERE tbl_mesa.Disponibilidad=?;";
+            $sentencia=$this->pdo->prepare($sql);
+            $sentencia->bindParam(1,$disponibilidad);
+            $sentencia->execute();
+
+            $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        }else if (!isset($_POST['num_com']) && !isset($_POST['disponibilidad']) && isset($_POST['ubicacion'])) {
+
+            $ubicacion=$_POST['ubicacion'];
+
+            $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion WHERE tbl_ubicacion.id_ubicacion=? ;";
+            $sentencia=$this->pdo->prepare($sql);
+            $sentencia->bindParam(1,$ubicacion);
+            $sentencia->execute();
+
+            $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        }else if (isset($_POST['num_com']) && isset($_POST['disponibilidad']) && !isset($_POST['ubicacion'])) {
+
+            $num_comensales=$_POST['num_com'];
+            $disponibilidad=$_POST['disponibilidad'];
+
+            $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion WHERE tbl_mesa.capacidad_mesa=? AND tbl_mesa.Disponibilidad=? ;";
+            $sentencia=$this->pdo->prepare($sql);
+            $sentencia->bindParam(1,$num_comensales);
+            $sentencia->bindParam(2,$disponibilidad);
+            $sentencia->execute();
+
+            $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        }else if (isset($_POST['num_com']) && !isset($_POST['disponibilidad']) && isset($_POST['ubicacion'])) {
+
+            $num_comensales=$_POST['num_com'];
+            $ubicacion=$_POST['ubicacion'];
+
+            $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion WHERE tbl_mesa.capacidad_mesa=? AND tbl_ubicacion.id_ubicacion=? ;";
+            $sentencia=$this->pdo->prepare($sql);
+            $sentencia->bindParam(1,$num_comensales);
+            $sentencia->bindParam(2,$ubicacion);
+            $sentencia->execute();
+
+            $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+        }else if (!isset($_POST['num_com']) && isset($_POST['disponibilidad']) && isset($_POST['ubicacion'])) {
+
+            $disponibilidad=$_POST['disponibilidad'];
+            $ubicacion=$_POST['ubicacion'];
+
+            $sql="SELECT DISTINCT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion WHERE  tbl_mesa.Disponibilidad=? AND tbl_ubicacion.id_ubicacion=? ;";
+            $sentencia=$this->pdo->prepare($sql);
+            $sentencia->bindParam(1,$disponibilidad);
+            $sentencia->bindParam(2,$ubicacion);
+            $sentencia->execute();
+
+            $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
+        }
+      
+            echo "<div class='container'>";
+            foreach ($lista_mesas as $mesa) {
             echo "<div class='item'>";
             $id=$mesa['id_mesa']." ";
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales</p> <br>";
@@ -74,14 +169,29 @@ class MesaDAO{
             echo "<option value='Mantenimiento'>Mantenimiento</option> ";
             echo "</select>";
             echo "<input type='submit' value='Submit'>";
-            // echo "</p>";
             echo "</form>";
             
             echo "</div>";
-        }
+            }
+            ?>
+            <script>
+                var Mesa=document.getElementsByClassName('item');
+                var Disponibilidad=document.getElementsByClassName('Disponibilidad');
 
-        echo "</div>";
+                for (let i = 0; i < Mesa.length; i++) {
+                    //alert(Mesa[i]);
+                    //alert(Disponibilidad[i].innerHTML);
 
+                    if(Disponibilidad[i].innerHTML == 'Disponible'){
+                    Mesa[i].style.backgroundColor = "green";
+                    }else if(Disponibilidad[i].innerHTML == 'Reservada'){
+                    Mesa[i].style.backgroundColor = "red";
+                    }else{
+                    Mesa[i].style.backgroundColor = "grey";
+                    }
+                }
+            </script>";
+            <?php
     }
 
     public function update(){
