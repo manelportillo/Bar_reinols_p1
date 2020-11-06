@@ -12,7 +12,7 @@ class MesaDAO{
 
     public function mostrar(){
 
-        $sql="SELECT tbl_mesa.*, tbl_ubicacion.Nombre_ubicacion, tbl_camarero.id_camarero FROM tbl_camarero INNER JOIN tbl_reserva ON tbl_camarero.id_camarero = tbl_reserva.id_camarero INNER JOIN tbl_mesa ON tbl_reserva.id_mesa = tbl_mesa.id_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion ORDER BY tbl_mesa.id_mesa ASC";
+        $sql="SELECT * FROM tbl_mesa INNER JOIN tbl_ubicacion ON tbl_mesa.id_ubicacion = tbl_ubicacion.id_ubicacion ORDER BY id_mesa ASC";
         $sentencia=$this->pdo->prepare($sql);
         $sentencia->execute();
 
@@ -119,8 +119,7 @@ class MesaDAO{
                 $sentencia=$this->pdo->prepare($query);
                 $sentencia->bindParam(1,$estado);
                 $sentencia->execute();
-                $query="UPDATE tbl_reserva SET Hora_final_reserva = CURRENT_TIME WHERE id_mesa = $id_mesa ";
-                
+                $query="UPDATE tbl_reserva SET Hora_final_reserva = CURRENT_TIME WHERE id_mesa = $id_mesa AND id_camarero = $id_camarero ORDER BY id_reserva DESC LIMIT 1";            
                 $sentencia=$this->pdo->prepare($query);
                 $sentencia->execute();              
                 header ("Location:../view/zona_camarero.php");
