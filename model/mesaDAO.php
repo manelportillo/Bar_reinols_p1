@@ -20,8 +20,9 @@ class MesaDAO{
 
         echo "<div class='container'>";
         foreach ($lista_mesas as $mesa) {
-            echo "<div class='item'>";
+            
             $id=$mesa['id_mesa']." ";
+            echo "<div id='item{$id}' class='item'>";
             echo "<p>{$mesa['capacidad_mesa']}"." Comensales</p> <br>";
             echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
             echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
@@ -32,6 +33,7 @@ class MesaDAO{
             echo "<option value='Mantenimiento'>Mantenimiento</option> ";
             echo "</select>";
             echo "<input type='submit' value='Submit'>";
+
             echo "</form>";
             
             echo "</div>";

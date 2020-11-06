@@ -23,8 +23,7 @@
             $numRow=$sentencia->rowCount();
 
             if(!empty($numRow) && $numRow==1){
-                $camarero->setEmail($result['email_camarero']);
-                $camarero->getPasswd($result['pswd_camarero']);
+                $camarero->setId($result['id_camarero']);
 
                 //Creamos la sesión
                 session_start();
