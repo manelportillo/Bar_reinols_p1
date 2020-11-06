@@ -4,12 +4,11 @@
         <meta charset="UTF-8"/>
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
         <link  rel="stylesheet" href="../css/zona_camarero.css"/>
-
-        <script src="../js/code.js"></script>
         <title>Mesas Bar Reinols</title>
     </head>
     <body>
-    <img class='img' src="../img/header.jpg"><br>
+        <div class='img' src="../img/header.jpg"></div>
+        
         <?php
 
             require_once '../model/mesaDAO.php';
@@ -55,8 +54,10 @@
                 echo "<input type='submit' value='Submit'>";
 
                 echo "</form>";
+                echo "</div>";
 
                 $mesaDAO->filtrarMesas();
+
 
             }else{
                 echo "<div class='ns'>";
@@ -97,12 +98,5 @@
 
             }
         ?>
- 			<footer>
-				<div class="footer">
-				</div>
-                <p class="footer">Copyright &copy; 2020 | Designed By : Manel Portillo, Albert Buendia, Eloi Rodriguez, Óscar Mengual, All rights reserved. </p>
-			</footer>
-
-	</div>
     </body>
 </html>
