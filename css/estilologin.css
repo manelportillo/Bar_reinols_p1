@@ -28,10 +28,21 @@ div {
     width: 400px;
     margin: 7% auto;
     border-radius: 5px;
-    background-color: rgb(40, 93, 109);
+    background-color: rgb(128, 68, 29);
     padding: 20px;
+}
+
+img{
+    width: 200px; 
+    height: 200px;
+    display:block;
+    margin:auto;
 }
 
 div#mensaje{
     padding: 0%;
 }
+
+  body {
+    background-image: url("https://wallpaperaccess.com/full/1886667.jpg");
+  }

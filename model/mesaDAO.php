@@ -18,26 +18,23 @@ class MesaDAO{
 
         $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
 
-
-        echo "<h1>Mesas</h1>";
-            echo "<div class='container'>";
-            foreach ($lista_mesas as $mesa) {
-                $id=$mesa['id_mesa']." ";
-                echo "<div class='item' id='item{$id}'>";
-                echo "<p>{$mesa['capacidad_mesa']}"." Comensales</p> <br>";
-                echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
-                echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
-                echo "<form action='../view/zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
-                echo "<select name='Disponibilidad'>";
-                echo "<option value='Disponible'>Disponible</option> ";
-                echo "<option value='Reservada'>Reservada</option> ";
-                echo "<option value='Mantenimiento'>Mantenimiento</option> ";
-                echo "</select>";
-                echo "<input type='submit' value='Submit'>";
-                // echo "</p>";
-                echo "</form>";
-                
-                echo "</div>";
+        echo "<div class='container'>";
+        foreach ($lista_mesas as $mesa) {
+            echo "<div class='item'>";
+            $id=$mesa['id_mesa']." ";
+            echo "<p>{$mesa['capacidad_mesa']}"." Comensales</p> <br>";
+            echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
+            echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
+            echo "<form action='../view/zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
+            echo "<select name='Disponibilidad'>";
+            echo "<option value='Disponible'>Disponible</option> ";
+            echo "<option value='Reservada'>Reservada</option> ";
+            echo "<option value='Mantenimiento'>Mantenimiento</option> ";
+            echo "</select>";
+            echo "<input type='submit' value='Submit'>";
+            echo "</form>";
+            
+            echo "</div>";
             }
             ?>
             <script>
@@ -57,9 +54,7 @@ class MesaDAO{
                     }
                 }
             </script>";
-            <?php
-            echo "</div>";
-        
+            <?php        
     }
 
     public function filtrarMesas(){
@@ -158,46 +153,45 @@ class MesaDAO{
             $sentencia->execute();
 
             $lista_mesas=$sentencia->fetchAll(PDO::FETCH_ASSOC);
-
         }
-
-        echo "<h1>Mesas</h1>";
+      
             echo "<div class='container'>";
             foreach ($lista_mesas as $mesa) {
-                $id=$mesa['id_mesa']." ";
-                echo "<div class='item' id='item{$id}'>";
-                echo "<p>{$mesa['capacidad_mesa']}"." Comensales</p> <br>";
-                echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
-                echo "<script>
-
-                var Mesa=document.getElementById('item{$id}');
-                var Disponibilidad=document.getElementsByClassName('Disponibilidad');
-                                
-                if(Disponibilidad[{$id}].innerHTML == 'Disponible'){
-                    Mesa.style.backgroundColor = 'green';
-                }else if(Disponibilidad[{$id}].innerHTML == 'Reservada'){
-                    Mesa.style.backgroundColor = 'red';
-                }else{
-                    Mesa.style.backgroundColor = 'grey';
-                }
-
-                </script>";
-                echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
-                echo "<form action='../view/zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
-                echo "<select name='Disponibilidad'>";
-                echo "<option value='Disponible'>Disponible</option> ";
-                echo "<option value='Reservada'>Reservada</option> ";
-                echo "<option value='Mantenimiento'>Mantenimiento</option> ";
-                echo "</select>";
-                echo "<input type='submit' value='Submit'>";
-                // echo "</p>";
-                echo "</form>";
-                
-                echo "</div>";
-            }
-
+            echo "<div class='item'>";
+            $id=$mesa['id_mesa']." ";
+            echo "<p>{$mesa['capacidad_mesa']}"." Comensales</p> <br>";
+            echo "<p class='Disponibilidad'>{$mesa['Disponibilidad']}</p><br>";
+            echo "<p>{$mesa['Nombre_ubicacion']}</p><br>";
+            echo "<form action='../view/zona_camarero.php?id_de_la_mesa={$id}' method='POST'>";
+            echo "<select name='Disponibilidad'>";
+            echo "<option value='Disponible'>Disponible</option> ";
+            echo "<option value='Reservada'>Reservada</option> ";
+            echo "<option value='Mantenimiento'>Mantenimiento</option> ";
+            echo "</select>";
+            echo "<input type='submit' value='Submit'>";
+            echo "</form>";
+            
             echo "</div>";
+            }
+            ?>
+            <script>
+                var Mesa=document.getElementsByClassName('item');
+                var Disponibilidad=document.getElementsByClassName('Disponibilidad');
 
+                for (let i = 0; i < Mesa.length; i++) {
+                    //alert(Mesa[i]);
+                    //alert(Disponibilidad[i].innerHTML);
+
+                    if(Disponibilidad[i].innerHTML == 'Disponible'){
+                    Mesa[i].style.backgroundColor = "green";
+                    }else if(Disponibilidad[i].innerHTML == 'Reservada'){
+                    Mesa[i].style.backgroundColor = "red";
+                    }else{
+                    Mesa[i].style.backgroundColor = "grey";
+                    }
+                }
+            </script>";
+            <?php
     }
 
     public function update(){

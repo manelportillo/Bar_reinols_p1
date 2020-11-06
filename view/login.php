@@ -10,7 +10,7 @@
 <body>
 <div>
   <form action="../controller/loginController.php" method="POST" onsubmit="return validacionForm()">
-    <h2>Login Camarero</h2>
+    <img src="../img/mauricio.png"><br>
     <label for="email">Email Camarero</label>
     <input type="email" id="email" name="email" placeholder="Email...">
     <label for="passwd">Contraseña</label>
