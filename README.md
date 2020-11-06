@@ -8,8 +8,14 @@ Tendremos dos comedores, un comedor grande y uno más pequeño. El comedor grand
 
 Para acabar, en nuestra sala privada contamos con la mesa más grande del local, pensada para un máximo de 16 personas.
 
+Usuarios Camarero:
+ *manelportillo@admin.es password:12345
+ *eloirodriguez@admin.es password:12345
+ *albertbuendia@admin.es password:12345
+ *oscarmengual@admin.es password:12345
+
+Usuario Mantenimiento:
+ *manoloperez@admin.es password:12345
 
 
-
-
-Manel Portillo, Albert Buendia, Eloi Rodriguez, Óscar Mengual
+Integrantes: Manel Portillo, Albert Buendia, Eloi Rodriguez, Óscar Mengual
