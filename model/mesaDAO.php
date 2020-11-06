@@ -200,13 +200,46 @@ class MesaDAO{
     public function update(){
         $estado=$_POST['Disponibilidad'];
         $id_mesa=$_GET['id_de_la_mesa'];
-        if ($estado == 'Disponible' || 'Reservada') {
-            $query="UPDATE tbl_mesa SET Disponibilidad = ? WHERE tbl_mesa.id_mesa = $id_mesa";
-            $sentencia=$this->pdo->prepare($query);
-            $sentencia->bindParam(1,$estado);
-            $sentencia->execute();
-            header ("Location:../view/zona_camarero.php");
-        } else {
+        $id_camarero=$_SESSION['camarero']->getId();
+        if ($estado == 'Reservada') {
+            $this->pdo->beginTransaction(); 
+            try{
+                
+                $query="UPDATE tbl_mesa SET Disponibilidad = ? WHERE tbl_mesa.id_mesa = $id_mesa";
+                $sentencia=$this->pdo->prepare($query);
+                $sentencia->bindParam(1,$estado);
+                $sentencia->execute();
+                $query="INSERT INTO tbl_reserva (Fecha_reserva, id_mesa, id_camarero, Hora_incio_reserva) VALUES (CURRENT_DATE, ?, ?, CURRENT_TIME);";
+                $sentencia=$this->pdo->prepare($query);
+                $sentencia->bindParam(1,$id_mesa);
+                $sentencia->bindParam(2,$id_camarero);
+                $sentencia->execute();
+                
+                header ("Location:../view/zona_camarero.php");
+            }catch (Exception $ex){
+                    /* Reconocer un error y no hacer los cambios */
+                     $this->pdo->rollback();
+                    echo $ex->getMessage();
+            } 
+            $this->pdo->commit();
+        }else if($estado == 'Disponible'){
+            $this->pdo->beginTransaction(); 
+            try{              
+                $query="UPDATE tbl_mesa SET Disponibilidad = ? WHERE tbl_mesa.id_mesa = $id_mesa";
+                $sentencia=$this->pdo->prepare($query);
+                $sentencia->bindParam(1,$estado);
+                $sentencia->execute();
+                $query="UPDATE tbl_reserva SET Hora_final_reserva = CURRENT_TIME WHERE id_mesa = $id_mesa AND id_camarero = $id_camarero ORDER BY id_reserva DESC LIMIT 1";            
+                $sentencia=$this->pdo->prepare($query);
+                $sentencia->execute();              
+                header ("Location:../view/zona_camarero.php");
+            }catch (Exception $ex){
+                    /* Reconocer un error y no hacer los cambios */
+                     $this->pdo->rollback();
+                    echo $ex->getMessage();
+            } 
+            $this->pdo->commit();        
+        }else {
             // header ("Location: zona_pruebas.php");
         }
 
