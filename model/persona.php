@@ -1,7 +1,7 @@
 <?php
 
 abstract class Persona{
-    private $id_ad; 
+    private $id; 
 
 
     private $email;
@@ -15,9 +15,9 @@ abstract class Persona{
     /**
      * Get the value of id_ad
      */ 
-    public function getId_ad()
+    public function getId()
     {
-        return $this->id_ad;
+        return $this->id;
     }
 
     /**
@@ -26,9 +26,9 @@ abstract class Persona{
      * @return  self
      */ 
 
-    public function setId_ad($id)
+    public function setId($id)
     {
-        $this->id = $id_ad;
+        $this->id = $id;
 
         return $this;
     }

@@ -12,6 +12,7 @@
         <?php
 
             require_once '../model/mesaDAO.php';
+            require_once '../controller/sessionController.php';
             $mesaDAO=new MesaDao(); 
            
             if (isset($_POST['Disponibilidad'])){
