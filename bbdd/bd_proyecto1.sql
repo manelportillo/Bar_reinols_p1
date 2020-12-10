@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2020 a las 20:27:17
+-- Tiempo de generación: 09-11-2020 a las 17:41:42
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.11
 
@@ -18,8 +18,27 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_proyecto1`
+-- Base de datos: `bd_proyecto1`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_administrador`
+--
+
+CREATE TABLE `tbl_administrador` (
+  `id_admin` int(10) NOT NULL,
+  `email_admin` varchar(50) COLLATE utf8_spanish2_ci NOT NULL,
+  `passwd_admin` varchar(255) COLLATE utf8_spanish2_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;
+
+--
+-- Volcado de datos para la tabla `tbl_administrador`
+--
+
+INSERT INTO `tbl_administrador` (`id_admin`, `email_admin`, `passwd_admin`) VALUES
+(1, 'administrador@admin.es', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
@@ -30,7 +49,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `tbl_camarero` (
   `id_camarero` int(5) NOT NULL,
   `nombre_camarero` varchar(50) COLLATE utf8mb4_spanish2_ci NOT NULL,
-  `apellido camarero` varchar(50) COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
+  `apellido_camarero` varchar(50) COLLATE utf8mb4_spanish2_ci DEFAULT NULL,
   `email_camarero` varchar(100) COLLATE utf8mb4_spanish2_ci NOT NULL,
   `pswd_camarero` varchar(50) COLLATE utf8mb4_spanish2_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish2_ci;
@@ -39,11 +58,16 @@ CREATE TABLE `tbl_camarero` (
 -- Volcado de datos para la tabla `tbl_camarero`
 --
 
-INSERT INTO `tbl_camarero` (`id_camarero`, `nombre_camarero`, `apellido camarero`, `email_camarero`, `pswd_camarero`) VALUES
+INSERT INTO `tbl_camarero` (`id_camarero`, `nombre_camarero`, `apellido_camarero`, `email_camarero`, `pswd_camarero`) VALUES
 (1, 'Manel', 'Portillo', 'manelportillo@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
 (2, 'Eloi', 'Rodríguez', 'eloirodriguez@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
 (3, 'Albert ', 'Buendia', 'albertbuendia@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
-(4, 'Óscar', 'Mengual', 'oscarmengual@admin.es', '827ccb0eea8a706c4c34a16891f84e7b');
+(4, 'Óscar', 'Mengual', 'oscarmengual@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(5, 'Juan', 'Gimenez', 'juangimenez@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(6, 'Maria', 'Puertas', 'mariapuertas@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(7, 'Carla', 'Lopez', 'carlalopez@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(8, 'Joaquin', 'Casado', 'joaquincasado@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(9, 'Andres', 'Piedra', 'andrespiedra@admin.es', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
@@ -86,7 +110,12 @@ CREATE TABLE `tbl_mantenimiento` (
 --
 
 INSERT INTO `tbl_mantenimiento` (`id_mantenimiento`, `nombre_mantenimiento`, `apellido_mantenimiento`, `email_mantenimiento`, `pswd_mantenimiento`) VALUES
-(1, 'Manolo', 'Perez', 'manoloperez@admin.es', '827ccb0eea8a706c4c34a16891f84e7b');
+(1, 'Manolo', 'Perez', 'manoloperez@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(2, 'Julia', 'Sanchez', 'juliasanchez@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(3, 'Jose', 'Buendia', 'josebuendia@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(4, 'Marta', 'Gimenez', 'martagimenez@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(5, 'Pablo', 'Maestre', 'Pablomaestre@admin.es', '827ccb0eea8a706c4c34a16891f84e7b'),
+(6, 'Gemma', 'Rodriguez', 'gemmarodriguez@admin.es', '827ccb0eea8a706c4c34a16891f84e7b');
 
 -- --------------------------------------------------------
 
@@ -186,6 +215,12 @@ INSERT INTO `tbl_ubicacion` (`id_ubicacion`, `Nombre_ubicacion`) VALUES
 --
 
 --
+-- Indices de la tabla `tbl_administrador`
+--
+ALTER TABLE `tbl_administrador`
+  ADD PRIMARY KEY (`id_admin`);
+
+--
 -- Indices de la tabla `tbl_camarero`
 --
 ALTER TABLE `tbl_camarero`
@@ -231,10 +266,16 @@ ALTER TABLE `tbl_ubicacion`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `tbl_administrador`
+--
+ALTER TABLE `tbl_administrador`
+  MODIFY `id_admin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `tbl_camarero`
 --
 ALTER TABLE `tbl_camarero`
-  MODIFY `id_camarero` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_camarero` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_incidencia`
@@ -246,7 +287,7 @@ ALTER TABLE `tbl_incidencia`
 -- AUTO_INCREMENT de la tabla `tbl_mantenimiento`
 --
 ALTER TABLE `tbl_mantenimiento`
-  MODIFY `id_mantenimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_mantenimiento` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tbl_mesa`
